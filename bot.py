@@ -3,17 +3,19 @@ import os
 import discord
 from dotenv import load_dotenv
 
-from intents.fun_fact import check_for_fun_fact
-from intents.goodbye import check_for_goodbye
+from intents.covid import try_covid
+from intents.fun_fact import try_fun_fact
+from intents.goodbye import try_goodbye
 from intents.google import send_google_link
-from intents.hello import check_for_hello
-from intents.mem import check_for_meme
-from intents.music import check_for_music
-from intents.thanks import check_for_thanks
-from intents.time import check_for_time
-from intents.weather import check_for_weather
-from intents.whats_up import check_for_whats_up
-from intents.who_are_you import check_for_who_are_you
+from intents.hello import try_hello
+from intents.mem import try_meme
+from intents.music import try_music
+from intents.random import try_random
+from intents.thanks import try_thanks
+from intents.time import try_time
+from intents.weather import try_weather
+from intents.whats_up import try_whats_up
+from intents.who_are_you import try_who_are_you
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
@@ -33,57 +35,67 @@ async def on_member_join(member):
 
 @client.event
 async def on_message(message):
-    if message.channel.name == os.getenv('DISCORD_CHANNEL') and message.author.bot == False:
+    if message.channel.name == os.getenv('DISCORD_CHANNEL') and not message.author.bot:
         print(message.author.display_name + ": " + message.content)
         message.content = message.content.lower()
         answered = False
 
-        reply = check_for_hello(message)
+        reply = try_hello(message)
         if reply != "":
             await message.channel.send(reply)
             answered = True
 
-        reply = check_for_who_are_you(message)
+        reply = try_who_are_you(message)
         if reply != "":
             await message.channel.send(reply)
             answered = True
 
-        reply = check_for_fun_fact(message)
+        reply = try_fun_fact(message)
         if reply != "":
             await message.channel.send(reply)
             answered = True
 
-        reply = check_for_thanks(message)
+        reply = try_thanks(message)
         if reply != "":
             await message.channel.send(reply)
             answered = True
 
-        reply = check_for_weather(message)
+        reply = try_weather(message)
         if reply != "":
             await message.channel.send(reply)
             answered = True
 
-        reply = check_for_music(message)
+        reply = try_music(message)
         if reply != "":
             await message.channel.send(reply)
             answered = True
 
-        reply = check_for_whats_up(message)
+        reply = try_whats_up(message)
         if reply != "":
             await message.channel.send(reply)
             answered = True
 
-        reply = check_for_meme(message)
+        reply = try_meme(message)
         if reply != "":
             await message.channel.send(file=discord.File(reply))
             answered = True
 
-        reply = check_for_goodbye(message)
+        reply = try_goodbye(message)
         if reply != "":
             await message.channel.send(reply)
             answered = True
 
-        reply = check_for_time(message)
+        reply = try_time(message)
+        if reply != "":
+            await message.channel.send(reply)
+            answered = True
+
+        reply = try_covid(message)
+        if reply != "":
+            await message.channel.send(reply)
+            answered = True
+
+        reply = try_random(message)
         if reply != "":
             await message.channel.send(reply)
             answered = True

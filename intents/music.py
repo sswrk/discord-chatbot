@@ -17,7 +17,7 @@ youtube_links = ["https://youtu.be/aGSKrC7dGcY",
                  "https://youtu.be/u5CVsCnxyXg"]
 
 
-def check_for_music(message):
+def try_music(message):
     if (message.content.find("słucha") != -1 or message.content.find("puść") != -1 or message.content.find(
             "włącz") != -1
             or message.content.find("wyślij") != -1 or message.content.find("zapodaj") != -1):

@@ -26,7 +26,7 @@ def truncate(f, n):
     return '.'.join([i, (d + '0' * n)[:n]])
 
 
-def check_for_weather(message):
+def try_weather(message):
     if message.content.find("podaj") != -1 or message.content.find("jak") != -1:
         if message.content.find("pogod") != -1 or message.content.find("temperatur") != -1 or message.content.find(
                 "zachmurzenie") != -1 \

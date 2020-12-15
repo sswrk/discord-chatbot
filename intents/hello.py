@@ -8,7 +8,7 @@ answers = ["Cześć, cześć :)",
            "Hejka!"]
 
 
-def check_for_hello(message):
+def try_hello(message):
     if (message.content.find("siema") != -1 or
             message.content.find("siemka") != -1 or
             message.content.find("cześć") != -1 or

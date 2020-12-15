@@ -8,7 +8,7 @@ answers = ["Do usłyszenia!",
            "Miło było z Tobą rozmawiać, do zobaczenia!"]
 
 
-def check_for_goodbye(message):
+def try_goodbye(message):
     if (message.content.find("pa") != -1 or
             message.content.find("na razie") != -1 or
             message.content.find("narazie") != -1 or

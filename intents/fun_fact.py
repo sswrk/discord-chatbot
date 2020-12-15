@@ -21,7 +21,7 @@ answers = ["Korea Północna i Kuba to jedyne miejsca, w których nie można kup
            "Oprócz zmysłów, które wszyscy znamy, takich jak węch i dotyk, człowiek ma także inne zmysły: propriocepcja (świadomość pozycji części ciała)."]
 
 
-def check_for_fun_fact(message):
+def try_fun_fact(message):
     if (message.content.find("podasz") != -1 or message.content.find("zapodaj") != -1 or message.content.find(
             "podaj") != -1 or
             message.content.find("zapodaj") != -1 or message.content.find("chcę") != -1):

@@ -9,7 +9,7 @@ answers = ["Proszę bardzo",
            "Spoko :)"]
 
 
-def check_for_thanks(message):
+def try_thanks(message):
     if (message.content.find("dzięki") != -1 or
             message.content.find("thank") != -1 or
             message.content.find("thx") != -1 or

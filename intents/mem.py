@@ -13,7 +13,7 @@ meme_paths = ["resources/memes/1.png",
               "resources/memes/5.png"]
 
 
-def check_for_meme(message):
+def try_meme(message):
     if message.content.find("mem") != -1:
         return meme_paths[random.randrange(0, len(meme_paths))]
     return ""

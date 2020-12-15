@@ -1,5 +1,6 @@
-requests
-discord
-python-dotenv
-pyowm
-pytemperature
+requests==2.25.0
+discord==1.0.1
+python-dotenv==0.15.0
+pyowm==3.1.1
+pytemperature==1.0
+COVID-19-Cases
