@@ -19,6 +19,7 @@ from intents.who_are_you import try_who_are_you
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
+GUILD = os.getenv('DISCORD_GUILD')
 
 intents = discord.Intents.default()
 intents.members = True
@@ -107,6 +108,9 @@ async def on_message(message):
 
 @client.event
 async def on_ready():
+    for guild in client.guilds:
+        if guild.name == GUILD:
+            break
     print(f'{client.user.name} has connected to Discord!')
 
 
